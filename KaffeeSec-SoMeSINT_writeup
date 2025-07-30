@@ -1,1 +1,112 @@
 
+#kaffeesec writeup
+
+ - Let's get started 
+
+Hi , so to get started we know Thomas Straussman ,the man we are investigating
+uses the handle tstraussman , with this name i can find his social media accounts and for that i 
+can either manually look for them or automate the process with tools , in my case i used sherlock
+but since the disclaimer says the accounts im looking for are only on reddit and twitter
+i stopped the scan, confirmed the links and proceeded with the tasks.
+
+# Let's get started
+
+the first question is what is Thomas favourite holiday, a quick glance at Thomas 
+twitter bio gave me the answer , Christmas.
+
+the second question asks whats Thomas birth date, the answer was easily found on reddit since
+his first and only post was about him celebrating his birthday , 5 years ago when he was 30 years old
+,so i checked the date and to be more sure i also checked the source code of the page to find the data
+of the date when the post was posted.
+the date is 20 december 1990. format of the answer 12-20-1990 
+
+now i have to find Thomas fiancee's twitter handle, to find her handle i first looked for 
+someone named Francesca among his followers/following but found nothing.
+checking his replies finally brought me somewhere , scrolling down his replies i found a few posts
+he replied to ,posted by a woman named Francesca Hodgelink, of course its her as i also found a clearly
+romantic post where he was mentioned , not just one actually.
+so i got the name , Francesca Hodgelink, and the last question of this task is , what is
+Thomas Background picture of, Buddah.
+
+# Spider...What?
+
+im gonna make this short since i had a few problems with this task , i was supposed to use 
+spiderfoot , i had to scan "Thomas Straussman" or "tstraussman" and get a result related 
+to a twitter acccount which was supposed to lead me to shadowban.eu.
+the questions i had to answer to were:
+what was the source module used to find these accounts?
+and check the shadowban API , What is the value of "search"?
+the source module was sftp_accounts, now the problem was finding the shadowban API
+because no matter how many scans i did and how may parameters i changed according to the site,
+i couldn't find any result related to shadowban , so i just realized the site was shutdown
+a few years ago.
+i used way back machine and looked "https://shadowban.eu/.api/tstraussman" set the time to 
+2021, clickled on a snapshot and finally found it , {"search": "1346173539712380929" .
+
+# Connections, connections..
+
+the questions of this challenge are quite easy , when i looked at Francesca's twitter i 
+instantly found the answers, what is the name of their  cat? gotank. when is Francesca's 
+mother's birthday? december 25,  Where did Thomas and his fiancee vacation to? her last
+VACATION post was a picture of a city , i used lens and found the name 
+of the city, Koblenz in Germany.
+and what show does Francesca like to watch? her last post is the answer, 90 day Fiance.
+everything is easily findable so no need to make this explanation longer.
+
+# Turn back the clock!!
+
+the last task was slightly more challenging , lets start with the first one of 6.
+
+1) what is the name of Thomas coworker?
+
+the site specify that i have to check Thomas reddit account with the WayBackMachine to find
+his coworker, i installed the wbm extension on my browser and checked the page Thomas reddit 
+birthday post.
+I found a  snapshot from December 21, just one day after the birthday post.
+In the comments,i found his coworker: Hans Minik
+
+2) Where does his coworker live?
+
+to find where he lives i simply assumed he lives in Nuuk , Greenland , since he mentions it
+in his Reddit bio and works with Thomas.
+
+3) What is the paste ID for the link we found? 
+
+to be honest i had no clue what i was supposed to do ,so i had to take a hint.
+
+"Did you use wayback machine on Hans' profile? If so, did you only look at the 
+first saved version? Did you look at the Electric Boogaloo? 
+If you have the link: - the flag is the string after the last / of the URL."
+ 
+i checked his reddit profile with the wbm and again checked the first snapshots,
+to be clear i didn't find anything at first so i used old.reddit.com instead of just
+reddit.com , as the room's guidelines suggested.
+
+the snapshot i was looking for was MAR-23-2021, from this snapshot i found a new post:
+https://web.archive.org/web/20210323231748/https://ghostbin.com/paste/ww4ju
+
+the last part after "paste" is the answer.
+
+4) Password for the next link? 
+
+so i opened the link that opened a ghostbin "note" blackmailing Thomas, 
+with Thomas personal email and a message from Hans to Thomas,
+and a link "https://ghostbin.com/paste/JENxv/" for a ghostbin note 
+with the proofs with a password to view the note: 1qaz2wsx
+5) Thomas email address was also in the note: straussmanthom@mail.com
+
+6) What is the name of Thomas' mistress?
+
+I had to use wbm because i couldn't simply open the link by pasting it on google,
+so i copy pasted this link: https://ghostbin.com/paste/JENxv/1qaz2wsx
+and after checking a snapshot from MAR-25-2021 i finally got the answer to the most
+important and last question..
+The name of Thomas mistress is Emilia Moller.
+
+
+- note
+
+i really liked this room , i actually found this one easier than the previous 2 i finished
+i just have 1 writeup for the first 2 which im going to post soon , so thats actually
+my second write up, im sorry if i made some grammar errors and if something wasn't clear,
+I'm still new to OSINT investigations. Constructive feedback is welcome and well appreciated.
